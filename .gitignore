@@ -1,1 +1,3 @@
-Byte-compiled / optimized / DLL filespycache/*.py[cod]*$py.classC extensions*.soDistribution / packaging.Pythonbuild/develop-eggs/dist/downloads/eggs/.eggs/lib/lib64/parts/sdist/var/wheels/*.egg-info/.installed.cfg*.eggVirtual Environmentsvenv/env/ENV/.env.venvStreamlit Secrets (CRITICAL SECURITY).streamlit/secrets.tomlOS junk.DS_StoreThumbs.db
+echo ".env" > .gitignore
+echo "venv/" >> .gitignore
+echo "__pycache__/" >> .gitignore
