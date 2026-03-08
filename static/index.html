@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelDevs: AI Agency</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    
+    <aside class="sidebar">
+        <div class="brand">
+            <span class="icon">👾</span> PixelDevs
+        </div>
+        <nav>
+            <div class="nav-item active"> Mission Control</div>
+            <div class="nav-item">📂 Archives</div>
+            <div class="nav-item">⚙️ Settings</div>
+        </nav>
+        <div class="status-panel">
+            <div class="status-item"><span class="dot green"></span> AI Brain: Online</div>
+            <div class="status-item"><span class="dot yellow"></span> DB: Local</div>
+        </div>
+    </aside>
+
+    
+    <main class="main-content">
+        
+        
+        <header class="control-deck">
+            <div class="input-group">
+                <label>Project Requirement</label>
+                <input type="text" id="taskInput" placeholder="E.g., Create a Snake Game in Python">
+            </div>
+            <div class="input-group">
+                <label>Language</label>
+                <select id="langInput">
+                    <option value="Python">Python</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="Java">Java</option>
+                    <option value="C++">C++</option>
+                </select>
+            </div>
+            <button id="startBtn" onclick="startProcess()">
+                <span>⚡ Initialize Agents</span>
+            </button>
+        </header>
+
+        
+        <section class="stage-wrapper">
+            <div class="office-container">
+                
+                <div class="agent-wrapper" id="agent-Supervisor" style="top: 20%; left: 15%;">
+                    <div class="chat-bubble">Planning task...</div>
+                    <img src="supervisor.png" class="avatar" alt="Supervisor">
+                    <div class="terminal-popup right-side">
+                        <div class="term-header">
+                            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                            <span class="title">sup_cli</span>
+                        </div>
+                        <div class="term-body" id="log-Supervisor">Waiting...</div>
+                    </div>
+                </div>
+
+                
+                <div class="agent-wrapper" id="agent-Developer" style="top: 50%; left: 25%;">
+                    <div class="chat-bubble">Writing code...</div>
+                    <img src="developer.png" class="avatar" alt="Developer">
+                    <div class="terminal-popup right-side">
+                        <div class="term-header">
+                            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                            <span class="title">dev_env</span>
+                        </div>
+                        <div class="term-body" id="log-Developer">Waiting...</div>
+                    </div>
+                </div>
+
+                
+                <div class="agent-wrapper" id="agent-Reviewer" style="top: 20%; right: 25%;">
+                    <div class="chat-bubble">Checking logic...</div>
+                    <img src="reviewer.png" class="avatar" alt="Reviewer">
+                    <div class="terminal-popup left-side">
+                        <div class="term-header">
+                            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                            <span class="title">rev_tool</span>
+                        </div>
+                        <div class="term-body" id="log-Reviewer">Waiting...</div>
+                    </div>
+                </div>
+
+                
+                <div class="agent-wrapper" id="agent-Tester" style="top: 50%; right: 15%;">
+                    <div class="chat-bubble">Running tests...</div>
+                    <img src="tester.png" class="avatar" alt="Tester">
+                    <div class="terminal-popup left-side">
+                        <div class="term-header">
+                            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                            <span class="title">qa_logs</span>
+                        </div>
+                        <div class="term-body" id="log-Tester">Waiting...</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        
+        <section class="output-deck" id="outputDeck" style="display: none;">
+            <div class="output-header">
+                <h3>✅ Generated Artifact</h3>
+                <button onclick="downloadCode()" class="secondary-btn">📥 Download File</button>
+            </div>
+            <pre><code id="finalCode">Waiting for output...</code></pre>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

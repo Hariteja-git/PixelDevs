@@ -1,0 +1,9 @@
+langgraph
+langchain_core
+google-generativeai
+python-dotenv
+supabase
+watchdog
+tenacity
+fastapi
+uvicorn
