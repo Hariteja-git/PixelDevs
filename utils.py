@@ -1,35 +1,42 @@
+import subprocess
 import sys
-import io
-import contextlib
-import threading
-import queue
+import os
 
 class CodeRunner:
     @staticmethod
-    def run_with_timeout(code, timeout=5):
-        """Runs code in a separate thread with a timeout."""
-        result_queue = queue.Queue()
+    def run_with_timeout(code, timeout=10):
+        """Runs Python code safely in an isolated subprocess."""
+        if not code.strip():
+            return "Error: No code provided."
 
-        def target():
-            stdout_capture = io.StringIO()
-            stderr_capture = io.StringIO()
-            try:
-                with contextlib.redirect_stdout(stdout_capture), contextlib.redirect_stderr(stderr_capture):
-                    exec_globals = {}
-                    exec(code, exec_globals)
-                output = stdout_capture.getvalue() + stderr_capture.getvalue()
-                result_queue.put(output if output else "Code Ran Successfully (No Output)")
-            except Exception as e:
-                result_queue.put(f"Runtime Error: {str(e)}")
+        file_name = "temp_exec.py"
+        
+        # 1. Write the code to a temporary file
+        with open(file_name, "w", encoding="utf-8") as f:
+            f.write(code)
 
-        t = threading.Thread(target=target)
-        t.daemon = True 
-        t.start()
-        t.join(timeout)
-        
-        if t.is_alive():
-            return "Timeout Error: Code execution took too long."
-        
-        if not result_queue.empty():
-            return result_queue.get()
-        return "No Output."
+        try:
+            # 2. Run the code using the server's Python executable
+            result = subprocess.run(
+                [sys.executable, file_name],
+                capture_output=True,
+                text=True,
+                timeout=timeout
+            )
+
+            # 3. Check if execution was successful (Return code 0 means no crashes)
+            if result.returncode == 0:
+                output = result.stdout.strip()
+                # Include the word "Passed" so the Tester node knows it was successful
+                return f"Execution Passed. Output:\n{output}" if output else "Execution Passed (No Output)."
+            else:
+                return f"Runtime Error:\n{result.stderr.strip()}"
+
+        except subprocess.TimeoutExpired:
+            return "Timeout Error: Code execution took too long (> 10 seconds)."
+        except Exception as e:
+            return f"System Error: {str(e)}"
+        finally:
+            # 4. Clean up the temp file
+            if os.path.exists(file_name):
+                os.remove(file_name)

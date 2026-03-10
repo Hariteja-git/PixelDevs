@@ -86,7 +86,7 @@ async def reviewer_node(state: AgentState) -> AgentState:
 
 async def tester_node(state: AgentState) -> AgentState:
     print("--- Tester Active ---")
-    code = state["code"]
+    code = state.get("code", "")
     lang = state.get("language", "Python")
     
     if lang.lower() == "python":
@@ -107,5 +107,10 @@ async def tester_node(state: AgentState) -> AgentState:
         except:
             output = "PASS"
 
-    status = "Tester:  PASS" if "PASS" in output.upper() or "Successfully" in output else "Tester:  FAIL"
+    # NEW LOGIC: Look for "PASS" or "Execution Passed"
+    if "PASS" in output.upper() or "EXECUTION PASSED" in output.upper():
+        status = "Tester: ✅ PASS"
+    else:
+        status = "Tester: ❌ FAIL"
+        
     return {"test_result": output, "current_status": status}
