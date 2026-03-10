@@ -21,7 +21,7 @@ async function startProcess() {
     finalCodeStore = "";
 
     btn.disabled = true;
-    btn.innerText = " Running Workflow...";
+    btn.querySelector('span').innerText = "Running Workflow...";
 
     const outputDeck = document.getElementById("outputDeck");
     outputDeck.style.display = "none";
@@ -74,7 +74,7 @@ async function startProcess() {
 
         
         btn.disabled = false;
-        btn.innerText = " Initialize Agents";
+        btn.querySelector('span').innerText = "Initialize Agents";
 
         outputDeck.style.display = "block";
 
@@ -87,7 +87,7 @@ async function startProcess() {
         alert("Connection Error. Check console.");
 
         btn.disabled = false;
-        btn.innerText = " Initialize Agents";
+        btn.querySelector('span').innerText = "Initialize Agents";
     }
 }
 

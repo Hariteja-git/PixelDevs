@@ -66,9 +66,37 @@ input, select {
 input:focus, select:focus { border-color: var(--neon-green); }
 
 button#startBtn {
-    background: var(--neon-green); color: black; font-weight: bold;
-    border: none; padding: 12px 24px; border-radius: 6px; cursor: pointer;
-    transition: transform 0.1s;
+    display: flex;
+    align-items: center;
+    font-family: inherit;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 17px;
+    padding: 0.8em 1.3em 0.8em 0.9em;
+    color: white;
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+    border: none;
+    letter-spacing: 0.05em;
+    border-radius: 16px;
+    white-space: nowrap;
+}
+
+button#startBtn svg {
+    margin-right: 8px;
+    transform: rotate(30deg);
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+button#startBtn span {
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+button#startBtn:hover svg {
+    transform: translateX(5px) rotate(90deg);
+}
+
+button#startBtn:hover span {
+    transform: translateX(7px);
 }
 button#startBtn:active { transform: scale(0.98); }
 
