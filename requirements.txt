@@ -9,3 +9,4 @@ tenacity
 fastapi
 uvicorn
 duckduckgo-search
+e2b-code-interpreter
