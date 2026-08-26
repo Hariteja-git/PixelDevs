@@ -133,7 +133,7 @@ def test_validate_code_syntax():
     assert is_valid is True
 
     # JS with unbalanced brackets inside string literal should pass (bypassed)
-    js_string_unbalanced = {"app.js": 'const marker = "{"; const arr = [1, 2;'}
+    js_string_unbalanced = {"app.js": 'const marker = "{"; const arr = [1, 2];'}
     is_valid, err = validate_code_syntax(js_string_unbalanced)
     assert is_valid is True
     assert err == ""
