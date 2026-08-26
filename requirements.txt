@@ -1,5 +1,6 @@
 langgraph
 langchain_core
+langchain_community
 google-generativeai
 python-dotenv
 supabase
@@ -7,3 +8,4 @@ watchdog
 tenacity
 fastapi
 uvicorn
+duckduckgo-search

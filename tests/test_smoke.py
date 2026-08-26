@@ -104,5 +104,40 @@ content
     assert result5 == {}
 
 
+def test_validate_code_syntax():
+    import sys
+    import os
+    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+    from utils import validate_code_syntax
+
+    # Valid Python code
+    valid_py = {"main.py": "def foo():\n    return 42\n"}
+    is_valid, err = validate_code_syntax(valid_py)
+    assert is_valid is True
+    assert err == ""
+
+    # Invalid Python code (missing colon)
+    invalid_py = {"main.py": "def foo()\n    return 42"}
+    is_valid, err = validate_code_syntax(invalid_py)
+    assert is_valid is False
+    assert "Syntax Error in main.py" in err
+
+    # Valid HTML
+    valid_html = {"index.html": "<html><body>Hi</body></html>"}
+    is_valid, err = validate_code_syntax(valid_html)
+    assert is_valid is True
+
+    # Valid JS
+    valid_js = {"app.js": "function foo() { return 1; }"}
+    is_valid, err = validate_code_syntax(valid_js)
+    assert is_valid is True
+
+    # Invalid JS (unbalanced braces)
+    invalid_js = {"app.js": "function foo() { return 1;"}
+    is_valid, err = validate_code_syntax(invalid_js)
+    assert is_valid is False
+    assert "Syntax Error in app.js" in err
+
+
 def test_pytest_collects_smoke_suite():
     assert MODULES, "Smoke test target list must not be empty"
