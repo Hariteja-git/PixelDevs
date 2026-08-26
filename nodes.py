@@ -153,26 +153,50 @@ async def tester_node(state: AgentState) -> AgentState:
         new_state["status"] = "completed"
         return new_state
 
-    # Determine entrypoint
+    # Determine entrypoint explicitly
     entrypoint = ""
     if lang.lower() == "python":
-        py_files = [f for f in files.keys() if f.endswith('.py')]
-        if py_files:
-            entrypoint = f"python {py_files[0]}"
+        if "main.py" in files:
+            entrypoint = "python main.py"
+        elif active_file and active_file.endswith('.py') and active_file in files:
+            entrypoint = f"python {active_file}"
         else:
-            entrypoint = "python -c 'print(\"No Python file\")'"
+            py_files = [f for f in files.keys() if f.endswith('.py')]
+            if py_files:
+                entrypoint = f"python {py_files[0]}"
+            else:
+                new_state["error_logs"] = "No Python entrypoint found (no main.py, no active .py file)"
+                new_state["status"] = "failed"
+                new_state["test_result"] = new_state["error_logs"]
+                return new_state
     elif lang.lower() in ("javascript", "js", "node"):
-        js_files = [f for f in files.keys() if f.endswith(('.js', '.mjs'))]
-        if js_files:
-            entrypoint = f"node {js_files[0]}"
+        if "index.js" in files or "main.js" in files:
+            entrypoint = f"node {('index.js' if 'index.js' in files else 'main.js')}"
+        elif active_file and active_file.endswith(('.js', '.mjs')) and active_file in files:
+            entrypoint = f"node {active_file}"
         else:
-            entrypoint = "node -e \"console.log('No JS file')\""
+            js_files = [f for f in files.keys() if f.endswith(('.js', '.mjs'))]
+            if js_files:
+                entrypoint = f"node {js_files[0]}"
+            else:
+                new_state["error_logs"] = "No JavaScript entrypoint found"
+                new_state["status"] = "failed"
+                new_state["test_result"] = new_state["error_logs"]
+                return new_state
     else:
-        new_state["test_result"] = "PASS"
-        new_state["status"] = "completed"
+        new_state["error_logs"] = f"Unsupported language for sandbox execution: {lang}"
+        new_state["status"] = "failed"
+        new_state["test_result"] = new_state["error_logs"]
         return new_state
 
-    exit_code, stdout, stderr = run_in_e2b_sandbox(files, entrypoint)
+    try:
+        exit_code, stdout, stderr = run_in_e2b_sandbox(files, entrypoint)
+    except RuntimeError as e:
+        new_state["error_logs"] = str(e)
+        new_state["status"] = "failed"
+        new_state["test_result"] = new_state["error_logs"]
+        return new_state
+
     output = f"Exit code: {exit_code}\nStdout:\n{stdout}\nStderr:\n{stderr}"
     new_state["error_logs"] = output
 

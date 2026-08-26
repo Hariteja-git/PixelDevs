@@ -1,1 +1,22 @@
-{"0": "Backend Core", "1": "Frontend UI", "2": "Tech Stack Dependencies", "3": "Graphify Documentation", "4": "Frontend Script Logic", "5": "UI Layout & Styling", "6": "OpenCode Configuration", "7": "Code Execution Utils", "8": "Graphify Plugin", "9": "API Endpoints", "10": "Developer Avatar", "11": "Output Deck", "12": "Office Image", "13": "Reviewer Avatar", "14": "Supervisor Avatar", "15": "Tester Avatar"}
+{
+  "0": "nodes.py",
+  "1": "Multi-Agent System",
+  "2": "Project Dependencies",
+  "3": "Graphify",
+  "4": "script.js",
+  "5": "PixelDevs",
+  "6": "opencode.json",
+  "7": "utils.py",
+  "8": "graphify.js",
+  "9": "server.py",
+  "10": "developer.png",
+  "11": "Output Deck",
+  "12": "office.png",
+  "13": "reviewer.png",
+  "14": "Supervisor Agent Avatar Image",
+  "15": "tester.png (image - unreadable)",
+  "16": "test_smoke.py",
+  "17": "AgentState",
+  "18": "state.py",
+  "19": "get_file"
+}
