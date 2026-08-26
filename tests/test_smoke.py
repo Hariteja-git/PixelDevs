@@ -7,6 +7,7 @@ import sys
 
 import pytest
 
+
 BACKEND_DIR = pathlib.Path(__file__).resolve().parent.parent / "backend"
 MODULES = ["config", "state", "graph", "nodes"]
 
@@ -50,6 +51,57 @@ def test_backend_module_compiles(module_name):
         compile(source_path.read_text(encoding="utf-8"), str(source_path), "exec")
     except SyntaxError as exc:
         pytest.fail(f"Syntax error in {source_path}: {exc}")
+
+
+def test_extract_files_from_artifact():
+    import sys
+    import os
+    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+    from utils import extract_files_from_artifact
+
+    text = """<file path="index.html">
+<html><body>Hello</body></html>
+</file>
+<file path="app.py">
+print('world')
+</file>"""
+    result = extract_files_from_artifact(text)
+    assert result == {
+        "index.html": "<html><body>Hello</body></html>",
+        "app.py": "print('world')",
+    }
+
+    # Test with leading/trailing newlines in content
+    text2 = """<file path="test.txt">
+
+content with newlines
+
+</file>"""
+    result2 = extract_files_from_artifact(text2)
+    assert result2 == {"test.txt": "content with newlines"}
+
+    # Test empty content
+    text3 = """<file path="empty.txt"></file>"""
+    result3 = extract_files_from_artifact(text3)
+    assert result3 == {"empty.txt": ""}
+
+    # Test whitespace-only path is skipped
+    text4 = """<file path="   ">
+content
+</file>
+<file path="valid.txt">content</file>"""
+    result4 = extract_files_from_artifact(text4)
+    assert result4 == {"valid.txt": "content"}
+
+    # Test all whitespace paths returns empty dict
+    text5 = """<file path="   ">
+content
+</file>
+<file path="\t\n">
+content
+</file>"""
+    result5 = extract_files_from_artifact(text5)
+    assert result5 == {}
 
 
 def test_pytest_collects_smoke_suite():

@@ -51,6 +51,18 @@ When reporting back after a task, use this format:
 - **Key Decisions:** Summary of structural changes made.
 - **Next Step:** The immediate next action item on the roadmap.
 
+## 7. Post-Implementation Summary & Handoff Protocol
+After completing ANY implementation, refactor, or file modification, you MUST output a structured summary of your actions before ending your turn. Always use the following exact format to ensure the human developer has full architectural context:
+
+### 🟢 EXECUTION REPORT
+* **Objective Achieved:** [Brief 1-sentence summary of what was accomplished]
+* **Files Modified:** [List of exact file paths created, edited, or deleted]
+* **Structural Changes Made:**
+    * [Specific change 1, e.g., "Updated extract_files_from_artifact to use regex parsing"]
+    * [Specific change 2, e.g., "Refactored developer_node to read from state['files']"]
+* **Verification Status:** [Explicit result of the local smoke tests, e.g., "pytest tests/test_smoke.py passed successfully"]
+* **Next Recommended Action:** [What the user should do next, e.g., "Run git commit and push to trigger CodeRabbit review"]
+
 ## graphify
 
 This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.

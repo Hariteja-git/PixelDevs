@@ -2,7 +2,7 @@ import re
 import asyncio
 from config import get_agent_model, get_system_rules
 from state import AgentState, get_file, set_file, list_files
-from utils import CodeRunner
+from utils import CodeRunner, extract_files_from_artifact
 
 
 def extract_code(text):
@@ -42,12 +42,14 @@ async def developer_node(state: AgentState) -> AgentState:
     if not existing_content:
         user_request = (
             f"Write {lang} code for: {task}. "
-            f"Return ONLY code inside ```{lang.lower()}``` blocks."
+            f"Output multi-file source code wrapped inside XML artifact blocks formatted exactly as: "
+            f"<file path=\"relative/path/to/file.ext\">... complete file content ...</file>"
         )
     else:
         user_request = (
             f"Fix this {lang} code based on feedback: {feedback}\n"
-            f"FILE: {active_file}\nCODE:\n{existing_content}"
+            f"FILE: {active_file}\nCODE:\n{existing_content}\n"
+            f"Output the fixed file wrapped in the same XML artifact block format."
         )
 
     full_prompt = f"SYSTEM RULES:\n{rules}\n\nUSER REQUEST:\n{user_request}"
@@ -56,23 +58,25 @@ async def developer_node(state: AgentState) -> AgentState:
     new_state["current_agent"] = "Developer"
     new_state["status"] = "coding"
 
-    if not active_file:
-        active_file = "main.py" if lang.lower() == "python" else f"main.{lang.lower()}"
-        new_state["active_file"] = active_file
-        existing_content = get_file(new_state, active_file)
-
     try:
         response = await model.generate_content_async(full_prompt)
         text = response.text
-        clean_code = extract_code(text)
-        new_state["error_logs"] = ""
+        file_dict = extract_files_from_artifact(text)
+        if file_dict:
+            for path, content in file_dict.items():
+                new_state = set_file(new_state, path, content)
+            if not new_state.get("active_file") or new_state["active_file"] not in new_state["files"]:
+                first_file = next(iter(file_dict))
+                new_state["active_file"] = first_file
+            new_state["error_logs"] = ""
+        else:
+            new_state["error_logs"] = "Developer Error: No valid XML artifact blocks found in response"
+            new_state["status"] = "failed"
     except Exception as e:
         print(f"Developer Error: {e}")
-        clean_code = existing_content
         new_state["error_logs"] = f"Developer API Error: {e}"
         new_state["status"] = "failed"
 
-    new_state = set_file(new_state, active_file, clean_code)
     new_state["iteration_count"] = state.get("iteration_count", 0) + 1
     return new_state
 
