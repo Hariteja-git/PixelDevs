@@ -2,6 +2,7 @@ import subprocess
 import sys
 import os
 import re
+import ast
 
 
 def extract_files_from_artifact(text: str) -> dict[str, str]:
@@ -14,6 +15,17 @@ def extract_files_from_artifact(text: str) -> dict[str, str]:
         if normalized_path:
             result[normalized_path] = content.strip('\n')
     return result
+
+
+def validate_code_syntax(files: dict[str, str]) -> tuple[bool, str]:
+    """Validate syntax of code files. Returns (is_valid, error_message)."""
+    for path, content in files.items():
+        if path.endswith('.py'):
+            try:
+                ast.parse(content)
+            except SyntaxError as e:
+                return False, f"Syntax Error in {path}: {e.msg} (line {e.lineno})"
+    return True, ""
 
 
 def apply_search_replace_patch(original: str, search_block: str, replace_block: str) -> str:

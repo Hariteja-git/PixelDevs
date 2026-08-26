@@ -2,7 +2,12 @@ import re
 import asyncio
 from config import get_agent_model, get_system_rules
 from state import AgentState, get_file, set_file, list_files
-from utils import CodeRunner, extract_files_from_artifact
+from utils import CodeRunner, extract_files_from_artifact, validate_code_syntax
+
+try:
+    from langchain_community.tools import DuckDuckGoSearchResults
+except ImportError:
+    DuckDuckGoSearchResults = None
 
 
 def extract_code(text):
@@ -13,6 +18,7 @@ def extract_code(text):
 
 async def supervisor_node(state: AgentState) -> AgentState:
     print("--- Supervisor Active ---")
+    search_tool = DuckDuckGoSearchResults() if DuckDuckGoSearchResults else None
     return {
         "status": "planning",
         "current_agent": "Supervisor",
@@ -23,6 +29,7 @@ async def supervisor_node(state: AgentState) -> AgentState:
         "review_feedback": "",
         "test_result": "",
         "error_logs": "",
+        "search_tool": search_tool,
     }
 
 
@@ -84,6 +91,15 @@ async def developer_node(state: AgentState) -> AgentState:
 async def reviewer_node(state: AgentState) -> AgentState:
     print("--- Reviewer Active ---")
     await asyncio.sleep(2)
+
+    files = state.get("files", {})
+    is_valid, err_msg = validate_code_syntax(files)
+    if not is_valid:
+        new_state = dict(state)
+        new_state["error_logs"] = err_msg
+        new_state["status"] = "failed"
+        new_state["current_agent"] = "Reviewer"
+        return new_state
 
     model = get_agent_model()
     rules = get_system_rules("Reviewer")
