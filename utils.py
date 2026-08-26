@@ -6,11 +6,11 @@ import re
 
 def extract_files_from_artifact(text: str) -> dict[str, str]:
     """Parse XML artifact blocks and return a dict mapping file paths to content."""
-    pattern = r'<file path="([^"]+)">(.*?)</file>'
+    pattern = r'<file path="([^"]+)">\n?(.*?)\n?</file>'
     matches = re.findall(pattern, text, re.DOTALL)
     result = {}
     for path, content in matches:
-        result[path.strip()] = content.strip()
+        result[path.strip()] = content.strip('\n')
     return result
 
 
