@@ -1,11 +1,5 @@
 language: en-US
-tone_instructions: >
-  You are performing a strict, in-depth code review. Be precise, technical, and
-  unforgiving about correctness, security, performance, and maintainability.
-  Point out any dead code, commented-out blocks, placeholders, TODOs, or
-  print/debug statements left behind. Demand comprehensive error handling,
-  explicit type hints, and idiomatic patterns. Do not rewrite the code for
-  the author; describe each issue and required change clearly.
+tone_instructions: Be concise, direct, and pragmatic. Focus strictly on actionable bug fixes, type safety, and code quality.
 
 reviews:
   profile: "chill"
