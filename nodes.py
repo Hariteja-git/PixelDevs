@@ -2,7 +2,7 @@ import re
 import asyncio
 from config import get_agent_model, get_system_rules
 from state import AgentState, get_file, set_file, list_files
-from utils import CodeRunner, extract_files_from_artifact, validate_code_syntax
+from utils import CodeRunner, extract_files_from_artifact, validate_code_syntax, run_in_e2b_sandbox
 
 try:
     from langchain_community.tools import DuckDuckGoSearchResults
@@ -138,8 +138,8 @@ async def reviewer_node(state: AgentState) -> AgentState:
 
 async def tester_node(state: AgentState) -> AgentState:
     print("--- Tester Active ---")
+    files = state.get("files", {})
     active_file = state.get("active_file", "")
-    code = get_file(state, active_file) if active_file else ""
     lang = state.get("language", "Python")
 
     new_state: AgentState = {
@@ -148,29 +148,35 @@ async def tester_node(state: AgentState) -> AgentState:
         "error_logs": state.get("error_logs", ""),
     }
 
-    if lang.lower() == "python" and code:
-        output = CodeRunner.run_with_timeout(code)
-        new_state["error_logs"] = output
-    else:
-        if not code:
-            output = "PASS"
-        else:
-            await asyncio.sleep(2)
-            model = get_agent_model()
-            rules = get_system_rules("Tester")
-            user_request = (
-                f"Check this {lang} code for syntax errors. Reply 'PASS' or list errors.\n"
-                f"FILE: {active_file}\n{code}"
-            )
-            full_prompt = f"SYSTEM RULES:\n{rules}\n\nUSER REQUEST:\n{user_request}"
-            try:
-                res = await model.generate_content_async(full_prompt)
-                output = res.text
-            except Exception as e:
-                print(f"Tester Error: {e}")
-                output = "PASS"
+    if not files:
+        new_state["test_result"] = "PASS"
+        new_state["status"] = "completed"
+        return new_state
 
-    if "PASS" in output.upper() or "EXECUTION PASSED" in output.upper():
+    # Determine entrypoint
+    entrypoint = ""
+    if lang.lower() == "python":
+        py_files = [f for f in files.keys() if f.endswith('.py')]
+        if py_files:
+            entrypoint = f"python {py_files[0]}"
+        else:
+            entrypoint = "python -c 'print(\"No Python file\")'"
+    elif lang.lower() in ("javascript", "js", "node"):
+        js_files = [f for f in files.keys() if f.endswith(('.js', '.mjs'))]
+        if js_files:
+            entrypoint = f"node {js_files[0]}"
+        else:
+            entrypoint = "node -e \"console.log('No JS file')\""
+    else:
+        new_state["test_result"] = "PASS"
+        new_state["status"] = "completed"
+        return new_state
+
+    exit_code, stdout, stderr = run_in_e2b_sandbox(files, entrypoint)
+    output = f"Exit code: {exit_code}\nStdout:\n{stdout}\nStderr:\n{stderr}"
+    new_state["error_logs"] = output
+
+    if exit_code == 0:
         new_state["status"] = "completed"
     else:
         new_state["status"] = "failed"
