@@ -10,7 +10,9 @@ def extract_files_from_artifact(text: str) -> dict[str, str]:
     matches = re.findall(pattern, text, re.DOTALL)
     result = {}
     for path, content in matches:
-        result[path.strip()] = content.strip('\n')
+        normalized_path = path.strip()
+        if normalized_path:
+            result[normalized_path] = content.strip('\n')
     return result
 
 

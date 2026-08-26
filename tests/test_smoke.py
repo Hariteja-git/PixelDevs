@@ -54,6 +54,9 @@ def test_backend_module_compiles(module_name):
 
 
 def test_extract_files_from_artifact():
+    import sys
+    import os
+    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
     from utils import extract_files_from_artifact
 
     text = """<file path="index.html">
@@ -81,6 +84,24 @@ content with newlines
     text3 = """<file path="empty.txt"></file>"""
     result3 = extract_files_from_artifact(text3)
     assert result3 == {"empty.txt": ""}
+
+    # Test whitespace-only path is skipped
+    text4 = """<file path="   ">
+content
+</file>
+<file path="valid.txt">content</file>"""
+    result4 = extract_files_from_artifact(text4)
+    assert result4 == {"valid.txt": "content"}
+
+    # Test all whitespace paths returns empty dict
+    text5 = """<file path="   ">
+content
+</file>
+<file path="\t\n">
+content
+</file>"""
+    result5 = extract_files_from_artifact(text5)
+    assert result5 == {}
 
 
 def test_pytest_collects_smoke_suite():
