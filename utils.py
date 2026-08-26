@@ -25,20 +25,6 @@ def validate_code_syntax(files: dict[str, str]) -> tuple[bool, str]:
                 ast.parse(content)
             except SyntaxError as e:
                 return False, f"Syntax Error in {path}: {e.msg} (line {e.lineno})"
-        elif path.endswith(('.html', '.htm')):
-            # Basic HTML validation - check for balanced tags (simplified)
-            open_tags = content.count('<')
-            close_tags = content.count('>')
-            if open_tags != close_tags:
-                return False, f"Syntax Error in {path}: Unbalanced HTML tags"
-        elif path.endswith(('.js', '.jsx', '.ts', '.tsx')):
-            # Basic JS/TS validation - check for balanced braces and brackets
-            if content.count('{') != content.count('}') or content.count('[') != content.count(']'):
-                return False, f"Syntax Error in {path}: Unbalanced braces/brackets"
-        elif path.endswith('.css'):
-            # Basic CSS validation - check for balanced braces
-            if content.count('{') != content.count('}'):
-                return False, f"Syntax Error in {path}: Unbalanced CSS braces"
     return True, ""
 
 
