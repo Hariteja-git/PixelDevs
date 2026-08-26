@@ -1,0 +1,181 @@
+language: en-US
+tone_instructions: >
+  You are performing a strict, in-depth code review. Be precise, technical, and
+  unforgiving about correctness, security, performance, and maintainability.
+  Point out any dead code, commented-out blocks, placeholders, TODOs, or
+  print/debug statements left behind. Demand comprehensive error handling,
+  explicit type hints, and idiomatic patterns. Do not rewrite the code for
+  the author; describe each issue and required change clearly.
+
+reviews:
+  profile: "chill"
+  request_changes_workflow: true
+  high_level_summary: true
+  high_level_summary_placeholder: "@coderabbitai summary"
+  auto_title_placeholder: "@coderabbitai"
+  review_status: true
+  commit_status: true
+  fail_commit_status: false
+  collapse_walkthrough: false
+  changed_files_summary: true
+  sequence_diagrams: true
+  estimate_code_review_effort: true
+  assess_linked_issues: true
+  related_prs: true
+  suggested_labels: true
+  auto_apply_labels: false
+  suggested_reviewers: true
+  auto_assign_reviewers: false
+  in_progress_fortune: true
+  poem: false
+  abort_on_close: true
+  disable_cache: false
+  auto_review:
+    enabled: true
+    auto_incremental_review: true
+    ignore_title_keywords: []
+    drafts: false
+    base_branches: ["main"]
+    ignore_usernames: []
+  finishing_touches:
+    docstrings:
+      enabled: true
+    unit_tests:
+      enabled: true
+  tools:
+    shellcheck:
+      enabled: true
+    ruff:
+      enabled: true
+    markdownlint:
+      enabled: true
+    github-checks:
+      enabled: true
+      timeout_ms: 90000
+    languagetool:
+      enabled: true
+      disabled_rules: []
+    biome:
+      enabled: true
+    hadolint:
+      enabled: true
+    swiftlint:
+      enabled: true
+    phpstan:
+      enabled: true
+      level: "max"
+    golangci-lint:
+      enabled: true
+    yamllint:
+      enabled: true
+    gitleaks:
+      enabled: true
+    checkov:
+      enabled: true
+    detekt:
+      enabled: true
+    eslint:
+      enabled: true
+    flake8:
+      enabled: true
+    rubocop:
+      enabled: true
+    buf:
+      enabled: true
+    actionlint:
+      enabled: true
+    semgrep:
+      enabled: true
+    circleci:
+      enabled: true
+
+chat:
+  auto_reply: true
+  integrations:
+    jira:
+      usage: "auto"
+    linear:
+      usage: "auto"
+
+knowledge_base:
+  opt_out: false
+  learn_guidelines: true
+  issues:
+    usage: "auto"
+  jira:
+    usage: "auto"
+    project_keys: []
+  linear:
+    usage: "auto"
+    team_keys: []
+  pull_requests:
+    usage: "auto"
+  confluence:
+    usage: "auto"
+    space_keys: []
+
+code_generation:
+  docstrings:
+    language: en-US
+    path_instructions:
+      - path: "backend/**/*.py"
+        instructions: |
+          - Enforce strict PEP 8 compliance.
+          - Demand complete type hints on every public function and class.
+          - Flag any use of bare `except`, `pass`, `TODO`, `...`, commented-out
+            code, or debug prints.
+          - Validate FastAPI route handlers have explicit response_model,
+            status_code, and dependency injection where applicable.
+          - Validate LangGraph state schemas use TypedDict with explicit,
+            non-Optional fields; reject implicit Any.
+          - Require docstrings for every public module, class, and function.
+
+      - path: "**/*.{ts,tsx,js,jsx}"
+        instructions: |
+          - Enforce strict TypeScript: no `any`, no `// @ts-ignore`, no implicit
+            return types on exported functions/components.
+          - Demand React components declare prop types via interfaces/types.
+          - Flag missing `key` props in lists, use of `dangerouslySetInnerHTML`
+            without justification, and any direct DOM mutation.
+          - Require explicit `useEffect` dependency arrays and cleanup.
+          - Reject unused state variables, dead code, and console.log
+            statements.
+
+path_filters:
+  - "!**/.git/**"
+  - "!**/node_modules/**"
+  - "!**/venv/**"
+  - "!**/__pycache__/**"
+  - "!**/graphify-out/**"
+  - "!**/*.lock"
+  - "!**/*.min.js"
+  - "!**/*.min.css"
+  - "!**/dist/**"
+  - "!**/build/**"
+
+path_instructions:
+  - path: "backend/**/*.py"
+    instructions: |
+      Review as a senior Python/FastAPI/LangGraph engineer. Demand:
+      - Full type hints and Pydantic models for all IO boundaries.
+      - Async correctness (no blocking IO in async paths; explicit
+        `asyncio.to_thread` when unavoidable).
+      - LangGraph nodes must be pure, idempotent, and raise on unrecoverable
+        errors rather than silently returning.
+      - No hardcoded secrets, API keys, or environment-specific URLs.
+      - Configuration via `pydantic-settings` or env vars loaded once at
+        startup, not per-request.
+      - Logging via `structlog`/`logging`, never `print`.
+      - Test coverage for every public function and every graph branch.
+  - path: "**/*.{ts,tsx,js,jsx}"
+    instructions: |
+      Review as a senior TypeScript/React engineer. Demand:
+      - Strict null checks; no non-null assertions without justification.
+      - Server state via TanStack Query/SWR; no raw `fetch` in components.
+      - Forms via react-hook-form + zod (or equivalent validated schemas).
+      - Accessibility: semantic HTML, ARIA only when required, keyboard
+        navigation.
+      - No inline styles for anything that should be a Tailwind/design-token
+        class.
+      - No direct `localStorage`/`sessionStorage` access outside a typed
+        wrapper.
