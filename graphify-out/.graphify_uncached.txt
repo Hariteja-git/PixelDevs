@@ -1,8 +1,0 @@
-C:\Users\hariteja17\OneDrive\Desktop\PixelDevs\AGENTS.md
-C:\Users\hariteja17\OneDrive\Desktop\PixelDevs\requirements.txt
-C:\Users\hariteja17\OneDrive\Desktop\PixelDevs\static\index.html
-C:\Users\hariteja17\OneDrive\Desktop\PixelDevs\static\developer.png
-C:\Users\hariteja17\OneDrive\Desktop\PixelDevs\static\office.png
-C:\Users\hariteja17\OneDrive\Desktop\PixelDevs\static\reviewer.png
-C:\Users\hariteja17\OneDrive\Desktop\PixelDevs\static\supervisor.png
-C:\Users\hariteja17\OneDrive\Desktop\PixelDevs\static\tester.png
