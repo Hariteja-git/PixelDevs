@@ -1,0 +1,877 @@
+{
+  "nodes": [
+    {
+      "id": "agents_md_graphify",
+      "label": "Graphify",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\AGENTS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents_md_knowledge_graph",
+      "label": "Knowledge Graph",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\AGENTS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents_md_god_nodes",
+      "label": "God Nodes",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\AGENTS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents_md_community_structure",
+      "label": "Community Structure",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\AGENTS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents_md_cross_file_relationships",
+      "label": "Cross-file Relationships",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\AGENTS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents_md_graph_json",
+      "label": "graph.json",
+      "file_type": "document",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\AGENTS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents_md_graph_report_md",
+      "label": "GRAPH_REPORT.md",
+      "file_type": "document",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\AGENTS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "agents_md_wiki_index_md",
+      "label": "wiki/index.md",
+      "file_type": "document",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\AGENTS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "requirements_txt_langgraph",
+      "label": "LangGraph",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\requirements.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "requirements_txt_langchain_core",
+      "label": "LangChain Core",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\requirements.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "requirements_txt_google_generativeai",
+      "label": "Google Generative AI",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\requirements.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "requirements_txt_python_dotenv",
+      "label": "Python Dotenv",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\requirements.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "requirements_txt_supabase",
+      "label": "Supabase",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\requirements.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "requirements_txt_watchdog",
+      "label": "Watchdog",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\requirements.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "requirements_txt_tenacity",
+      "label": "Tenacity",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\requirements.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "requirements_txt_fastapi",
+      "label": "FastAPI",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\requirements.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "requirements_txt_uvicorn",
+      "label": "Uvicorn",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\requirements.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "requirements_txt_dependencies",
+      "label": "Project Dependencies",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\requirements.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "static_index_html_pixeldevs",
+      "label": "PixelDevs",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "static_index_html_mission_control",
+      "label": "Mission Control",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "static_index_html_ai_brain",
+      "label": "AI Brain",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "static_index_html_db_local",
+      "label": "DB Local",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "static_index_html_supervisor_agent",
+      "label": "Supervisor Agent",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "static_index_html_developer_agent",
+      "label": "Developer Agent",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "static_index_html_reviewer_agent",
+      "label": "Reviewer Agent",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "static_index_html_tester_agent",
+      "label": "Tester Agent",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "static_index_html_initialize_agents_button",
+      "label": "Initialize Agents Button",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "static_index_html_project_requirement_input",
+      "label": "Project Requirement Input",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "static_index_html_language_select",
+      "label": "Language Select",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "static_index_html_output_deck",
+      "label": "Output Deck",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "static_index_html_generated_artifact",
+      "label": "Generated Artifact",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "static_index_html_download_button",
+      "label": "Download Button",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "static_index_html_script_js",
+      "label": "script.js",
+      "file_type": "document",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "static_index_html_style_css",
+      "label": "style.css",
+      "file_type": "document",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "static_index_html_multi_agent_system",
+      "label": "Multi-Agent System",
+      "file_type": "concept",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "static_developer_png",
+      "label": "developer.png",
+      "file_type": "image",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\developer.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "static_office",
+      "label": "office.png",
+      "file_type": "image",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\office.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "static_reviewer_png",
+      "label": "reviewer.png",
+      "file_type": "image",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\reviewer.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "static_supervisor_png_supervisor_avatar",
+      "label": "Supervisor Agent Avatar Image",
+      "file_type": "image",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\supervisor.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": "2026-03-21T15:31:25",
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "static_tester_png",
+      "label": "tester.png (image - unreadable)",
+      "file_type": "image",
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\tester.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "agents_md_graphify",
+      "target": "agents_md_knowledge_graph",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\AGENTS.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_md_knowledge_graph",
+      "target": "agents_md_god_nodes",
+      "relation": "has_part",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\AGENTS.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_md_knowledge_graph",
+      "target": "agents_md_community_structure",
+      "relation": "has_part",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\AGENTS.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_md_knowledge_graph",
+      "target": "agents_md_cross_file_relationships",
+      "relation": "has_part",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\AGENTS.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_md_graphify",
+      "target": "agents_md_graph_json",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\AGENTS.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_md_graphify",
+      "target": "agents_md_graph_report_md",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\AGENTS.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "agents_md_graphify",
+      "target": "agents_md_wiki_index_md",
+      "relation": "uses",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\AGENTS.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "requirements_txt_dependencies",
+      "target": "requirements_txt_langgraph",
+      "relation": "includes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\requirements.txt",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "requirements_txt_dependencies",
+      "target": "requirements_txt_langchain_core",
+      "relation": "includes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\requirements.txt",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "requirements_txt_dependencies",
+      "target": "requirements_txt_google_generativeai",
+      "relation": "includes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\requirements.txt",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "requirements_txt_dependencies",
+      "target": "requirements_txt_python_dotenv",
+      "relation": "includes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\requirements.txt",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "requirements_txt_dependencies",
+      "target": "requirements_txt_supabase",
+      "relation": "includes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\requirements.txt",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "requirements_txt_dependencies",
+      "target": "requirements_txt_watchdog",
+      "relation": "includes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\requirements.txt",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "requirements_txt_dependencies",
+      "target": "requirements_txt_tenacity",
+      "relation": "includes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\requirements.txt",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "requirements_txt_dependencies",
+      "target": "requirements_txt_fastapi",
+      "relation": "includes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\requirements.txt",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "requirements_txt_dependencies",
+      "target": "requirements_txt_uvicorn",
+      "relation": "includes",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\requirements.txt",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "requirements_txt_langgraph",
+      "target": "requirements_txt_langchain_core",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\requirements.txt",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "requirements_txt_fastapi",
+      "target": "requirements_txt_uvicorn",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\requirements.txt",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "static_index_html_pixeldevs",
+      "target": "static_index_html_mission_control",
+      "relation": "has_part",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "static_index_html_pixeldevs",
+      "target": "static_index_html_ai_brain",
+      "relation": "has_part",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "static_index_html_pixeldevs",
+      "target": "static_index_html_db_local",
+      "relation": "has_part",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "static_index_html_multi_agent_system",
+      "target": "static_index_html_supervisor_agent",
+      "relation": "includes",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "static_index_html_multi_agent_system",
+      "target": "static_index_html_developer_agent",
+      "relation": "includes",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "static_index_html_multi_agent_system",
+      "target": "static_index_html_reviewer_agent",
+      "relation": "includes",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "static_index_html_multi_agent_system",
+      "target": "static_index_html_tester_agent",
+      "relation": "includes",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "static_index_html_initialize_agents_button",
+      "target": "static_index_html_multi_agent_system",
+      "relation": "triggers",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "static_index_html_supervisor_agent",
+      "target": "static_index_html_developer_agent",
+      "relation": "delegates_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "static_index_html_developer_agent",
+      "target": "static_index_html_reviewer_agent",
+      "relation": "hands_off_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "static_index_html_reviewer_agent",
+      "target": "static_index_html_tester_agent",
+      "relation": "hands_off_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "static_index_html_project_requirement_input",
+      "target": "static_index_html_multi_agent_system",
+      "relation": "input_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "static_index_html_language_select",
+      "target": "static_index_html_multi_agent_system",
+      "relation": "input_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "static_index_html_multi_agent_system",
+      "target": "static_index_html_generated_artifact",
+      "relation": "produces",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "static_index_html_generated_artifact",
+      "target": "static_index_html_download_button",
+      "relation": "can_be_downloaded_by",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "static_index_html_script_js",
+      "target": "static_index_html_initialize_agents_button",
+      "relation": "controls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "static_index_html_style_css",
+      "target": "static_index_html_pixeldevs",
+      "relation": "styles",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "static_reviewer_png",
+      "target": "static_reviewer_png",
+      "relation": "references",
+      "confidence": "AMBIGUOUS",
+      "confidence_score": 0.15,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\reviewer.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "static_supervisor_png_supervisor_avatar",
+      "target": "nodes_py_supervisor_node",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\supervisor.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "static_supervisor_png_supervisor_avatar",
+      "target": "static_index_html",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\supervisor.png",
+      "source_location": "static/index.html:58",
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "multi_agent_workflow",
+      "label": "Multi-Agent Workflow",
+      "nodes": [
+        "static_index_html_supervisor_agent",
+        "static_index_html_developer_agent",
+        "static_index_html_reviewer_agent",
+        "static_index_html_tester_agent"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\static\\index.html"
+    },
+    {
+      "id": "project_tech_stack",
+      "label": "Project Tech Stack",
+      "nodes": [
+        "requirements_txt_langgraph",
+        "requirements_txt_langchain_core",
+        "requirements_txt_google_generativeai",
+        "requirements_txt_python_dotenv",
+        "requirements_txt_supabase",
+        "requirements_txt_watchdog",
+        "requirements_txt_tenacity",
+        "requirements_txt_fastapi",
+        "requirements_txt_uvicorn"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\requirements.txt"
+    },
+    {
+      "id": "graphify_knowledge_graph_concepts",
+      "label": "Graphify Knowledge Graph Concepts",
+      "nodes": [
+        "agents_md_knowledge_graph",
+        "agents_md_god_nodes",
+        "agents_md_community_structure",
+        "agents_md_cross_file_relationships"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\Users\\hariteja17\\OneDrive\\Desktop\\PixelDevs\\AGENTS.md"
+    }
+  ],
+  "input_tokens": 1200,
+  "output_tokens": 320
+}
