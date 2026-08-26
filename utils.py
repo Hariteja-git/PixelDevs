@@ -1,6 +1,25 @@
 import subprocess
 import sys
 import os
+import re
+
+
+def extract_files_from_artifact(text: str) -> dict[str, str]:
+    """Parse XML artifact blocks and return a dict mapping file paths to content."""
+    pattern = r'<file path="([^"]+)">(.*?)</file>'
+    matches = re.findall(pattern, text, re.DOTALL)
+    result = {}
+    for path, content in matches:
+        result[path.strip()] = content.strip()
+    return result
+
+
+def apply_search_replace_patch(original: str, search_block: str, replace_block: str) -> str:
+    """Apply a localized search-and-replace patch to the original content."""
+    if search_block in original:
+        return original.replace(search_block, replace_block, 1)
+    return original
+
 
 class CodeRunner:
     @staticmethod

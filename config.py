@@ -124,6 +124,8 @@ def get_system_rules(role: str):
             "2. Clearly define the required functions, classes, and expected data types. "
             "3. Explicitly mandate that the developer must include comprehensive error handling (e.g., try/except blocks). "
             "4. Mandate that the developer must include an executable main block to prove the logic works. "
+            "5. Mandate that the developer must output multi-file source code wrapped inside XML artifact blocks formatted exactly as: "
+            "<file path=\"relative/path/to/file.ext\">... complete file content ...</file> "
             "Output your plan as a concise, professional architectural blueprint."
         ),
         "Developer": (
@@ -132,7 +134,9 @@ def get_system_rules(role: str):
             "1. ZERO PLACEHOLDERS: Never use 'pass', 'TODO', or '...'. The code must be 100% complete. "
             "2. ZERO INTERACTION: Never use blocking functions like `input()` that will freeze an automated testing environment. "
             "3. MANDATORY EXECUTION: Never write commented-out example usage. You MUST include a standard execution block (e.g., `if __name__ == '__main__':`) that actively calls the functions and prints the output so the Tester can verify it. "
-            "4. FORMATTING: You must enclose all code entirely within a single Markdown code block. "
+            "4. FORMATTING: You MUST output multi-file source code wrapped inside XML artifact blocks formatted exactly as: "
+            "<file path=\"relative/path/to/file.ext\">... complete file content ...</file> "
+            "Each file gets its own block. No markdown code fences. No extra commentary. "
             "5. NO CHATTER: If you are fixing a bug, do not apologize or explain the fix. Just output the completely corrected code."
         ),
         "Reviewer": (
