@@ -25,53 +25,72 @@ if SUPABASE_URL and SUPABASE_KEY:
 else:
     print("Warning: Supabase environment variables not found. DB saves are disabled.")
 
+
+def _build_initial_state(task: str, language: str) -> dict:
+    return {
+        "task": task,
+        "language": language,
+        "files": {},
+        "active_file": "",
+        "task_plan": [],
+        "error_logs": "",
+        "iteration_count": 0,
+        "current_agent": "Supervisor",
+        "status": "planning",
+        "conversation_history": [],
+        "review_feedback": "",
+        "test_result": "",
+    }
+
+
 @app.get("/run_stream")
 async def run_stream(task: str, language: str):
     async def event_generator():
         try:
             workflow = create_workflow()
-            
-            initial_state = {
-                "task": task,
-                "language": language,
-                "code": "",
-                "review_feedback": "",
-                "test_result": "",
-                "conversation_history": [],  
-                "iteration_count": 0,
-                "current_status": "Supervisor:  Preparing..."
-            }
-            
-            final_code = "" # Variable to capture the code as it updates
-            
+            initial_state = _build_initial_state(task, language)
+            final_files: dict = {}
+            final_active_file = ""
+            final_status = "completed"
+
             async for event in workflow.astream(initial_state):
                 for agent, data in event.items():
-                    
-                    # Update final_code whenever an agent modifies the code state
-                    if "code" in data and data["code"]:
-                        final_code = data["code"]
-                        
+                    if isinstance(data, dict):
+                        if data.get("files"):
+                            final_files = data["files"]
+                        if data.get("active_file"):
+                            final_active_file = data["active_file"]
+                        if data.get("status"):
+                            final_status = data["status"]
+
                     payload = {
                         "agent": agent,
-                        "status": data.get("current_status", "Processing..."),
-                        "code": data.get("code", ""),
-                        "feedback": data.get("review_feedback", ""),
-                        "test_result": data.get("test_result", "")
+                        "status": data.get("status", "processing") if isinstance(data, dict) else "processing",
+                        "files": data.get("files", {}) if isinstance(data, dict) else {},
+                        "active_file": data.get("active_file", "") if isinstance(data, dict) else "",
+                        "active_file_content": (
+                            data.get("files", {}).get(data.get("active_file", ""), "")
+                            if isinstance(data, dict) and data.get("active_file")
+                            else ""
+                        ),
+                        "error_logs": data.get("error_logs", "") if isinstance(data, dict) else "",
+                        "feedback": data.get("review_feedback", "") if isinstance(data, dict) else "",
+                        "test_result": data.get("test_result", "") if isinstance(data, dict) else "",
                     }
-                    
+
                     yield json.dumps(payload) + "\n"
-                    
                     await asyncio.sleep(0.1)
 
-            # --- SUPABASE SAVE OPERATION ---
-            # Save the final code to the database after the workflow finishes
             if supabase:
                 try:
+                    primary_file = final_active_file or (next(iter(final_files), "") if final_files else "")
+                    primary_content = final_files.get(primary_file, "")
                     supabase.table("pixeldevs_runs").insert({
                         "task": task,
                         "language": language,
-                        "final_code": final_code,
-                        "status": "Success"
+                        "final_code": primary_content,
+                        "files": final_files,
+                        "status": final_status,
                     }).execute()
                     print("Successfully saved run to Supabase.")
                 except Exception as db_e:
@@ -80,7 +99,7 @@ async def run_stream(task: str, language: str):
         except Exception as e:
             print("Server Error Traceback:")
             traceback.print_exc()
-            yield json.dumps({"error": str(e)}) + "\n"
+            yield json.dumps({"error": str(e), "status": "failed"}) + "\n"
 
     return StreamingResponse(event_generator(), media_type="application/x-ndjson")
 
@@ -89,7 +108,5 @@ app.mount("/", StaticFiles(directory="static", html=True), name="static")
 
 if __name__ == "__main__":
     import uvicorn
-    # Cloud Run dynamically assigns a port via the PORT environment variable. 
-    # We default to 8080 here so it works both locally and on the cloud.
     port = int(os.environ.get("PORT", 8080))
     uvicorn.run(app, host="0.0.0.0", port=port)

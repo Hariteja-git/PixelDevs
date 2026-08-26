@@ -31,11 +31,13 @@ def set_file(state: AgentState, path: str, content: str) -> AgentState:
 
 
 def delete_file(state: AgentState, path: str) -> AgentState:
-    """Remove a file from the VFS. Returns a new state dict."""
+    """Remove a file from the VFS. Clears active_file if it matches. Returns a new state dict."""
     files = dict(state.get("files", {}))
     files.pop(path, None)
     new_state = dict(state)
     new_state["files"] = files
+    if state.get("active_file") == path:
+        new_state["active_file"] = ""
     return new_state
 
 
